@@ -2,13 +2,13 @@ import UIKit
 
 class ToDoListViewController: UIViewController {
 
+    var task : Task?
     
     @IBOutlet weak var tableView: UITableView?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,7 @@ class ToDoListViewController: UIViewController {
         let addAction = UIAlertAction(title: "추가", style: .default) { [weak self] _ in guard let self else {return}
             if let title = alertController.textFields?.first?.text,
                !title.isEmpty {
-                let newItem = Task(id: (TaskList.list.last?.id ?? -1) + 1, title: title, isCompleted: false)
+                let newItem = Task(id: (TaskList.list.last?.id ?? -1) + 1, title: title, isCompleted: false, time: Date())
                 TaskList.list.append(newItem)
                 self.tableView?.insertRows(at: [IndexPath(row: TaskList.list.count-1, section: 0)], with: .automatic)
             }
@@ -62,5 +62,8 @@ extension ToDoListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoListTableViewCell
         cell.setTask(TaskList.list[indexPath.row])
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }

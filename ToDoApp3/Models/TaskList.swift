@@ -2,8 +2,8 @@ import Foundation
 
 struct TaskList {
     static var list: [Task] = [
-        Task(id: 0, title: "빨래 하기", isCompleted: false),
-        Task(id: 1, title: "Swift 공부 하기", isCompleted: true)
+        Task(id: 0, title: "빨래 하기", isCompleted: false, time: Date()),
+        Task(id: 1, title: "Swift 공부 하기", isCompleted: true, time: Date())
     ]
     
     static func completeList() -> [Task] {

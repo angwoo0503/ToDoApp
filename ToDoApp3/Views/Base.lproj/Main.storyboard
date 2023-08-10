@@ -22,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="할 일 확인하기"/>
                                 <connections>
-                                    <segue destination="gSc-Gh-4pU" kind="show" id="eGU-1h-8MI"/>
+                                    <segue destination="gSc-Gh-4pU" kind="show" identifier="detail" id="ZvR-w2-5e4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0s-ow-sQ2">
@@ -93,11 +93,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KoM-99-snR" customClass="ToDoListTableViewCell" customModule="ToDoApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="150" id="KoM-99-snR" customClass="ToDoListTableViewCell" customModule="ToDoApp3" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KoM-99-snR" id="VKa-WM-XIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yoa-3r-Gem">
@@ -107,10 +107,18 @@
                                                         <action selector="switchChanged:" destination="KoM-99-snR" eventType="valueChanged" id="kte-7j-NHQ"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-LC-pnT">
+                                                    <rect key="frame" x="43" y="118" width="173" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="taskSwitch" destination="Yoa-3r-Gem" id="7cz-dM-ERT"/>
+                                            <outlet property="timeLabel" destination="eYh-LC-pnT" id="Xif-dK-ppK"/>
                                             <segue destination="GCS-q8-GDV" kind="show" identifier="detail" id="T7g-ji-AFy"/>
                                         </connections>
                                     </tableViewCell>
@@ -137,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ckx-Cu-QyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="-346"/>
+            <point key="canvasLocation" x="2333.5877862595421" y="-346.47887323943661"/>
         </scene>
         <!--To Do Detail View Controller-->
         <scene sceneID="rb2-Yr-f1w">
@@ -160,7 +168,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="제목">
                                         <attributes>
-                                            <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -178,6 +186,13 @@
                                     <action selector="didTapDeleteButton:" destination="GCS-q8-GDV" eventType="touchUpInside" id="2Vc-Jv-Oho"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhA-hd-gZN">
+                                <rect key="frame" x="65" y="144" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Yx-4J-YfK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -191,11 +206,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="taskTitle" destination="cQL-uz-TCt" id="Mmc-9j-FU2"/>
+                        <outlet property="timeLabel" destination="EhA-hd-gZN" id="OHm-QN-wC2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39S-Fm-3bN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3160" y="-346"/>
+            <point key="canvasLocation" x="3159.5419847328244" y="-346.47887323943661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="79H-1B-Ihx">

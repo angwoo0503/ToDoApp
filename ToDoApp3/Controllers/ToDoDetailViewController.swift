@@ -6,11 +6,13 @@ class ToDoDetailViewController: UIViewController {
     
     @IBOutlet weak var taskTitle: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         taskTitle.text = task?.title
+        timeLabel.text = DateFormatter.formatTodoDate(date: task!.time)
     }
     
 
