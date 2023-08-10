@@ -3,20 +3,26 @@ import UIKit
 class ToDoListViewController: UIViewController {
 
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView?.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? ToDoListTableViewCell else {return}
+        if segue.identifier == "detail" {
+            if let vc = segue.destination as? ToDoDetailViewController{
+                vc.task = cell.task
+            }
+        }
     }
     
 
