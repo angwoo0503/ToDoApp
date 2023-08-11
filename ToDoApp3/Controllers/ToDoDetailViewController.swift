@@ -23,10 +23,11 @@ class ToDoDetailViewController: UIViewController {
         }
         let addAction = UIAlertAction(title: "수정", style: .default) {
             [weak self] _ in guard let self, let task else { return }
-            if let title = alertController.textFields?.first?.text,
-               !title.isEmpty {
-                TaskList.editTask(task: task, title: title)
+            if let title = alertController.textFields?.first?.text, !title.isEmpty {
+                TaskList.editTask(task: task, title: title, time: Date())
                 self.taskTitle.text = title
+                let timeString = DateFormatter.formatTodoDate(date: Date())
+                self.timeLabel.text = timeString
             }
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)

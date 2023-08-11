@@ -18,10 +18,11 @@ struct TaskList {
         }
     }
     
-    static func editTask(task: Task, title: String) {
+    static func editTask(task: Task, title: String, time: Date) {
         for index in 0 ..< list.count {
             if list[index].id == task.id {
                 list[index].title = title
+                list[index].time = time
             }
         }
     }
